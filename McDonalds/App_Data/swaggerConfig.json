@@ -1,0 +1,407 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "A title for your API"
+  },
+  "host": "localhost:44333",
+  "schemes": [ "https" ],
+  "paths": {
+    "/api/Authorizations": {
+      "post": {
+        "tags": [ "Authorizations" ],
+        "operationId": "Authorizations_PostAuthorization",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "ipAddress",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "upTimes",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/AuthorizationModel" }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Restaurants": {
+      "get": {
+        "tags": [ "Restaurants" ],
+        "operationId": "Restaurants_GetRestaurant",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "ipAddress",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Restaurant" }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [ "Restaurants" ],
+        "operationId": "Restaurants_PostRestaurant",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "restaurant",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Restaurant" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Restaurant" }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Restaurants/{id}": {
+      "put": {
+        "tags": [ "Restaurants" ],
+        "operationId": "Restaurants_PutRestaurant",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "restaurant",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Restaurant" }
+          }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [ "Restaurants" ],
+        "operationId": "Restaurants_DeleteRestaurant",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Restaurant" }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/ServerEvents": {
+      "get": {
+        "tags": [ "ServerEvents" ],
+        "operationId": "ServerEvents_GetServerEvents",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/ServerEvent" }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [ "ServerEvents" ],
+        "operationId": "ServerEvents_PostServerEvent",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "serverEvent",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/ServerEvent" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ServerEvent" }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/ServerEvents/{id}": {
+      "get": {
+        "tags": [ "ServerEvents" ],
+        "operationId": "ServerEvents_GetServerEvent",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ServerEvent" }
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [ "ServerEvents" ],
+        "operationId": "ServerEvents_PutServerEvent",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "serverEvent",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/ServerEvent" }
+          }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [ "ServerEvents" ],
+        "operationId": "ServerEvents_DeleteServerEvent",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ServerEvent" }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Values": {
+      "get": {
+        "tags": [ "Values" ],
+        "operationId": "Values_Get",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [ "Values" ],
+        "operationId": "Values_Post",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "deprecated": false
+      }
+    },
+    "/api/Values/{id}": {
+      "get": {
+        "tags": [ "Values" ],
+        "operationId": "Values_Get",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [ "Values" ],
+        "operationId": "Values_Put",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "value",
+            "in": "body",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [ "Values" ],
+        "operationId": "Values_Delete",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "AuthorizationModel": {
+      "type": "object",
+      "properties": {
+        "StatusCode": { "type": "string" },
+        "Detail": { "type": "string" }
+      }
+    },
+    "Restaurant": {
+      "type": "object",
+      "properties": {
+        "RestaurantId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Nom": { "type": "string" },
+        "ShortName": { "type": "string" },
+        "ServerName": { "type": "string" },
+        "ServerIpAddress": { "type": "string" },
+        "Email": { "type": "string" },
+        "City": { "type": "string" },
+        "Address_1": { "type": "string" },
+        "Address_2": { "type": "string" },
+        "Address_3": { "type": "string" },
+        "Address_4": { "type": "string" },
+        "ZipCode": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PhoneNumber": { "type": "string" },
+        "FaxNumber": { "type": "string" },
+        "OpeningDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "PermanentClosureDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "ServerEvent": {
+      "type": "object",
+      "properties": {
+        "ServerEventId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RestaurantId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Event": {
+          "format": "int32",
+          "enum": [ 0, 1, 2, 3, 4, 5, 6 ],
+          "type": "integer"
+        },
+        "Date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "UpTimes": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Detail": { "type": "string" }
+      }
+    }
+  }
+}
